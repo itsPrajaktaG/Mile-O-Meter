@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF6BD"
+    android:id="@+id/log_screen">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/horizontal1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintGuide_percent=".07"
+        android:orientation="horizontal" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vertical1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintGuide_percent=".2"
+        android:orientation="vertical" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vertical2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintGuide_percent=".8"
+        android:orientation="vertical" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/horizontal1"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="@string/_45_hour_log"
+        android:gravity="center_horizontal"
+        android:textSize="35sp"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/test_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:textSize="50px"
+
+        />
+
+    <TextView
+        android:id="@+id/test_input2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/test_input"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:textSize="50px"
+        />
+
+    <TextView
+        android:id="@+id/message"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintRight_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/log_table"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toBottomOf="@id/test_input"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <TableLayout
+        android:id="@+id/log_table"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/horizontal1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <TableRow
+            android:background="@color/teal_200"
+            android:layout_width="0dp"
+            android:backgroundTint="#FFD4B2">
+            <TextView
+                android:layout_height="wrap_content"
+                android:text="@string/date"
+                android:padding="10dp"
+                android:textSize="15sp"
+                android:gravity="center_horizontal"
+                tools:ignore="SmallSp" />
+            <TextView
+                android:layout_height="wrap_content"
+                android:text="@string/session_string"
+                android:padding="10sp"
+                android:textSize="15sp"
+                android:layout_weight="4"
+                android:gravity="center"
+                tools:ignore="SmallSp" />
+            <TextView
+                android:layout_height="wrap_content"
+                android:text="@string/total_minutes_driven"
+                android:padding="10sp"
+                android:textSize="15sp"
+                android:layout_weight="3"
+                android:gravity="center_horizontal"
+                tools:ignore="SmallSp" />
+            <TextView
+                android:layout_height="wrap_content"
+                android:text="@string/total_mileage"
+                android:padding="10sp"
+                android:textSize="15sp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                tools:ignore="SmallSp" />
+            <!--
+            <TextView
+                android:layout_height="wrap_content"
+                android:text="@string/night_driving_minutes"
+                android:padding="10sp"
+                android:textSize="15sp"
+                android:layout_weight="3"
+                android:gravity="center_horizontal"
+                tools:ignore="SmallSp" />
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:text="@string/signature_string"
+                android:padding="10sp"
+                android:textSize="10sp"
+                android:layout_weight="5"
+                android:gravity="center_horizontal"
+                tools:ignore="SmallSp" />-->
+        </TableRow>
+    </TableLayout>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/viewLogButton"
+        app:layout_constraintTop_toBottomOf="@id/log_table"
+        android:orientation="vertical"
+        android:id="@+id/linearlayout" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/viewLogButton"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:textColor="@color/black"
+        android:text="@string/log_to_home"
+        android:background="@color/purple_200"
+        android:textSize="11sp"
+        android:onClick="back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/vertical1"
+        app:layout_constraintRight_toRightOf="@id/vertical2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias=".96"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
